@@ -1,0 +1,41 @@
+{
+  "input": [
+    {
+      "account_name": "bijihadina",
+      "account_id": 233,
+      "deal_id": 1,
+      "email": "1@infinigrow.com",
+      "contact_id": 1
+    },
+    {
+      "account_name": "bijihadina",
+      "account_id": 234,
+      "deal_id": 2,
+      "email": "2@infinigrow.com",
+      "contact_id": 2
+    }
+  ],
+  "expected": [
+    {
+      "account_name": [
+        "bijihadina"
+      ],
+      "account_id": [
+        233,
+        234
+      ],
+      "deal_id": [
+        1,
+        2
+      ],
+      "email": [
+        "1@infinigrow.com",
+        "2@infinigrow.com"
+      ],
+      "contact_id": [
+        1,
+        2
+      ]
+    }
+  ]
+}

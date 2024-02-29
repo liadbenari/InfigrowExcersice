@@ -1,0 +1,76 @@
+{
+  "input": [
+    {
+      "account_name": "a",
+      "account_id": 233,
+      "deal_id": 1,
+      "email": "1@infinigrow.com",
+      "contact_id": 1
+    },
+    {
+      "account_name": "a",
+      "account_id": 234,
+      "deal_id": 2,
+      "email": "2@infinigrow.com",
+      "contact_id": 2
+    },
+    {
+      "account_name": "b",
+      "account_id": 235,
+      "deal_id": 3,
+      "email": "2@infinigrow.com",
+      "contact_id": 3
+    },
+    {
+      "account_name": "d",
+      "account_id": 236,
+      "deal_id": 5,
+      "email": "other@infinigrow.com",
+      "contact_id": 5
+    }
+  ],
+  "expected": [
+    {
+      "account_name": [
+        "a",
+        "b"
+      ],
+      "account_id": [
+        233,
+        234,
+        235
+      ],
+      "deal_id": [
+        1,
+        2,
+        3
+      ],
+      "email": [
+        "1@infinigrow.com",
+        "2@infinigrow.com"
+      ],
+      "contact_id": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "account_name": [
+        "d"
+      ],
+      "account_id": [
+        236
+      ],
+      "deal_id": [
+        5
+      ],
+      "email": [
+        "other@infinigrow.com"
+      ],
+      "contact_id": [
+        5
+      ]
+    }
+  ]
+}
