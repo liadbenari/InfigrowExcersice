@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from typing import List, Union
-from abc import ABC, abstractmethod
+from Cluster.Cluster import Cluster
 
 
 @dataclass
@@ -10,29 +10,6 @@ class Identity:
     deal_id: Union[int, None]
     email: str
     contact_id: int
-
-
-class Cluster(ABC):
-    @abstractmethod
-    def add_item(self, item):
-        pass
-
-    @abstractmethod
-    def __contains__(self, item):
-        pass
-
-    @abstractmethod
-    def __hash__(self):
-        pass
-
-    @abstractmethod
-    def to_dict(self) -> dict:
-        pass
-
-    @staticmethod
-    @abstractmethod
-    def from_list(l: List):
-        pass
 
 
 class IdentitiesCluster(Cluster):
