@@ -1,1 +1,8 @@
+deepdiff==6.7.1
+exceptiongroup==1.2.0
+iniconfig==2.0.0
+ordered-set==4.1.0
+packaging==23.2
+pluggy==1.4.0
 pytest==8.0.2
+tomli==2.0.1

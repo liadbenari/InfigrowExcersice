@@ -3,3 +3,5 @@
 
 # Ignore Python virtual environment folder
 venv/
+
+*/.pytest_cache/*
