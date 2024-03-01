@@ -1,16 +1,9 @@
-from dataclasses import dataclass, field
-from typing import List, Union
+from dataclasses import dataclass
+from typing import Union
+
 
 @dataclass
-class IdentitiesMultiple:
-    account_name: List[str] = field(default_factory=list)
-    account_id: List[int] = field(default_factory=list)
-    deal_id: List[int] = field(default_factory=list)
-    email: List[str] = field(default_factory=list)
-    contact_id: List[int] = field(default_factory=list)
-
-@dataclass
-class IdentitySingular:
+class Identity:
     account_name: str
     account_id: int
     deal_id: Union[int, None]

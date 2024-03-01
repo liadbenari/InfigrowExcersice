@@ -1,15 +1,6 @@
-from dataclasses import dataclass
-from typing import List, Union
+from typing import List
 from Cluster.Cluster import Cluster
-
-
-@dataclass
-class Identity:
-    account_name: str
-    account_id: int
-    deal_id: Union[int, None]
-    email: str
-    contact_id: int
+from identity.Identity import Identity
 
 
 class IdentitiesCluster(Cluster):
