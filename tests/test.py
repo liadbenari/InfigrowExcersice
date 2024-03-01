@@ -3,7 +3,8 @@ import json
 import pytest
 from deepdiff import DeepDiff
 
-from identities import identities_handler, metrics_handler
+from Metrics.MetricsClusterHandler import MetricsClusterHandler
+from identity.IdentityClusterHandler import IdentityClusterHandler
 
 
 def load_test_cases(directory):
@@ -25,7 +26,8 @@ def load_test_cases(directory):
 def test_identities(test_case):
     test_input = test_case['input']
     expected_output = test_case['expected']
-    actual_output = identities_handler(test_input)
+    cluster_handler = IdentityClusterHandler()
+    actual_output = cluster_handler.handle_items(test_input)
     diff = DeepDiff(actual_output, expected_output, ignore_order=True)
     assert not diff, f'Difference found: {diff}'
 
@@ -38,6 +40,7 @@ def test_identities(test_case):
 def test_metrics(test_case):
     test_input = test_case['input']
     expected_output = test_case['expected']
-    actual_output = metrics_handler(test_input)
+    cluster_handler = MetricsClusterHandler()
+    actual_output = cluster_handler.handle_items(test_input)
     diff = DeepDiff(actual_output, expected_output, ignore_order=True)
     assert not diff, f'Difference found: {diff}'
