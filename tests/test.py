@@ -3,7 +3,7 @@ import json
 import pytest
 from deepdiff import DeepDiff
 
-from identities import identities_handler
+from identities import identities_handler, metrics_handler
 
 
 def load_test_cases(directory):
@@ -19,10 +19,10 @@ def load_test_cases(directory):
 
 @pytest.mark.parametrize(
     "test_case",
-    load_test_cases('test_cases'),
+    load_test_cases('identities_test_cases'),
     ids=lambda test_case: test_case['test_name']
 )
-def test_run_test_cases(test_case):
+def test_identities(test_case):
     test_input = test_case['input']
     expected_output = test_case['expected']
     actual_output = identities_handler(test_input)
@@ -30,3 +30,14 @@ def test_run_test_cases(test_case):
     assert not diff, f'Difference found: {diff}'
 
 
+@pytest.mark.parametrize(
+    "test_case",
+    load_test_cases('metrics_test_cases'),
+    ids=lambda test_case: test_case['test_name']
+)
+def test_metrics(test_case):
+    test_input = test_case['input']
+    expected_output = test_case['expected']
+    actual_output = metrics_handler(test_input)
+    diff = DeepDiff(actual_output, expected_output, ignore_order=True)
+    assert not diff, f'Difference found: {diff}'

@@ -1,0 +1,49 @@
+{
+  "input": {
+    "metricsCustomFilters": {
+      "metric1": [
+        {
+          "kind": "custom",
+          "data": {
+            "fieldIndex": 0,
+            "variant": 0,
+            "selectedOptions": [
+              "a", "b"
+            ]
+          }
+        }
+      ],
+      "metric2": [
+        {
+          "kind": "custom",
+          "data": {
+            "fieldIndex": 0,
+            "variant": 0,
+            "selectedOptions": [
+              "b", "a"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "expected": [
+    {
+      "metrics": [
+        "metric1", "metric2"
+      ],
+      "filters": [
+        {
+          "kind": "custom",
+          "data": {
+            "fieldIndex": 0,
+            "variant": 0,
+            "selectedOptions": [
+              "a", "b"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "input": {
+    "metricsCustomFilters": {
+      "metric1": [
+        {
+          "kind": "custom",
+          "data": {
+            "fieldIndex": 0,
+            "variant": 0,
+            "selectedOptions": [
+              "End Customer"
+            ]
+          }
+        },
+        {
+          "kind": "custom",
+          "data": {
+            "fieldIndex": 1,
+            "variant": 1,
+            "selectedOptions": [
+              "End Customer", "Start Customer"
+            ]
+          }
+        }
+      ],
+      "metric2": [
+        {
+          "kind": "custom",
+          "data": {
+            "fieldIndex": 0,
+            "variant": 0,
+            "selectedOptions": [
+              "End Customer"
+            ]
+          }
+        },
+        {
+          "kind": "custom",
+          "data": {
+            "fieldIndex": 1,
+            "variant": 1,
+            "selectedOptions": [
+              "End Customer", "Start Customer"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "expected": [
+    {
+      "metrics": [
+        "metric1", "metric2"
+      ],
+      "filters": [
+        {
+          "kind": "custom",
+          "data": {
+            "fieldIndex": 0,
+            "variant": 0,
+            "selectedOptions": [
+              "End Customer"
+            ]
+          }
+        },
+        {
+          "kind": "custom",
+          "data": {
+            "fieldIndex": 1,
+            "variant": 1,
+            "selectedOptions": [
+              "End Customer", "Start Customer"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
