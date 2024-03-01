@@ -1,5 +1,4 @@
-import json
-from dataclasses import dataclass, field, fields, asdict
+from dataclasses import dataclass, field, asdict
 from typing import List, Union
 from abc import ABC, abstractmethod
 
