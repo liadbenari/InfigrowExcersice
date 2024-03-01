@@ -1,19 +1,10 @@
-from dataclasses import dataclass, field, asdict
+from dataclasses import dataclass
 from typing import List, Union
 from abc import ABC, abstractmethod
 
 
 @dataclass
-class IdentitiesMultiple:
-    account_name: List[str] = field(default_factory=list)
-    account_id: List[int] = field(default_factory=list)
-    deal_id: List[int] = field(default_factory=list)
-    email: List[str] = field(default_factory=list)
-    contact_id: List[int] = field(default_factory=list)
-
-
-@dataclass(unsafe_hash=True)
-class IdentitySingular:
+class Identity:
     account_name: str
     account_id: int
     deal_id: Union[int, None]
@@ -48,7 +39,7 @@ class IdentitiesCluster(Cluster):
 
     def __init__(self):
         self._sets = {}
-        for field_name in IdentitySingular.__annotations__.keys():
+        for field_name in Identity.__annotations__.keys():
             self._sets[field_name] = set()
 
     @staticmethod
@@ -63,7 +54,7 @@ class IdentitiesCluster(Cluster):
         for field_name, field_value in vars(item).items():
             self._sets[field_name].add(getattr(item, field_name))
 
-    def __contains__(self, identity: IdentitySingular):
+    def __contains__(self, identity: Identity):
         return any([
             field_value and field_value in self._sets[field_name]
             for field_name, field_value in vars(identity).items()
@@ -73,14 +64,14 @@ class IdentitiesCluster(Cluster):
         return hash(tuple((field_name, frozenset(field_values)) for field_name, field_values in self._sets.items()))
 
     def to_dict(self) -> dict:
-        return asdict(IdentitiesMultiple(**{
+        return {
             field_name: list(field_set)
             for field_name, field_set in self._sets.items()
-        }))
+        }
 
 
 def identities_handler(identities):
-    identities: List[IdentitySingular] = [IdentitySingular(**identity) for identity in identities]
+    identities: List[Identity] = [Identity(**identity) for identity in identities]
     clusters = set()
     for identity in identities:
         relevant_clusters = [cluster for cluster in clusters if identity in cluster]
